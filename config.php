@@ -2,8 +2,8 @@
 
 define('DB_DRIVER', 'mpdo');
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'gkjnbyf');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
 define('DB_DATABASE', 'uran');
 define('DB_PORT', '3306');
 define('DB_PREFIX', '');
