@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="blog-header">
+        <h1 class="blog-title">Добавление товара</h1>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <form action="?products-add&add" method="post">
+                <label for="product_type_id">Тип:</label><br>
+                <select name="product_type_id">
+                    {% for product_type in product_types %}
+                        <option value="{{ product_type.id }}"{% if product_type.id == product.product_type_id %} selected{% endif %}>
+                            {{ product_type.name }}</option>
+                    {% endfor %}
+                </select><br>
+                <select name="category_id">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}"{% if category.id == product.category_id %} selected{% endif %}>
+                            {{ category.name }}</option>
+                    {% endfor %}
+                </select><br>
+                <label for="name">Наименование товара:</label><input type="text" class="form-control" name="name"
+                                                                     value="{{ product.name }}">
+                <label for="description">Описание:</label><input type="text" class="form-control"
+                                                                 name="description" value="{{ product.description }}">
+                <br>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+            <hr>
+            <div>
+                <form enctype="multipart/form-data" action="?products-add&imageChange" method="post">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>
+                    <input type="hidden" name="id" value="{{ product.id }}"/>
+                    Выберите файл для смены основной картинки: <input name="userfile" type="file"/>
+                    <input type="submit" value="Отправить файл"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,5 @@ abstract class Controller
     public function __construct($registry)
     {
         $this->registry = $registry;
-
     }
 }

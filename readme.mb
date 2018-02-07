@@ -1,0 +1,12 @@
+Документация по установке и настройке
+
+ - в папке, на которую настроен виртуальный хостинг, создать папку 'uran' (url будет, например, http://sites/uran)
+ - в папку 'uran' клонировать или скачать проект с репозитория
+ - импортировать базу данных 'uran.sql'
+    :$ mysql -u username -p
+    mysql> CREATE DATABASE uran;
+    mysql> exit;
+    :$ mysql -u username -p uran < uran.sql
+ - установить логин и пароль mysql в config.php
+ - в папке 'uran' запустить (для устранения зависимостей):
+    php composer.phar install

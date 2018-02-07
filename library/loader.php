@@ -31,19 +31,9 @@ class Loader
         }
     }
 
-    public function controller($path, $args)
+    public function controller($path, $method, $args)
     {
-//        $array = explode('/', $path);
-        $array = explode('/', preg_replace('/[^a-zA-Z0-9_\/=]/', '', (string)$path));
-        if (count($array) == 1) {
-            $path = $array[0];
-        } elseif (count($array) == 2) {
-            $path = $array[0];
-            $this->method = $array[1];
-        } else {
-            //other params
-            return;
-        }
+        if (!empty($method)) $this->method = $method;
         $file = DIR_APPLICATION . 'controller/' . strtolower($path) . '.php';
         $class = 'Controller' . ucfirst($path);
         if (is_file($file)) {

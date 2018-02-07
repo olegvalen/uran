@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Товары</h1>
+    <div class="row">
+        <form action="?products&search" method="post">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Поиск ..." name="search">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Поиск</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Тип</th>
+            <th scope="col">Категория</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Редактировать</th>
+            <th scope="col">Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.product_type }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.description }}</td>
+                <td><img class="uran-image" src="{{ product.image }}"></td>
+                <td>
+                    <a href="?products&edit={{ product.id }}">
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="?products&delete={{ product.id }}">
+                        <button type="button" class="btn btn-primary">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="?products-add">
+        <button type="button" class="btn btn-primary">Add</button>
+    </a>
+    </tbody>
+</div>

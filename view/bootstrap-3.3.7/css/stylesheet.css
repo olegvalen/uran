@@ -1,7 +1,18 @@
 body {
     padding-top: 50px;
 }
+
 .starter-template {
     padding: 40px 15px;
     text-align: center;
+}
+
+.uran-image {
+    width: 50px;
+    height: 50px;
+}
+
+.uran-image-edit {
+    width: 85px;
+    height: 85px;
 }

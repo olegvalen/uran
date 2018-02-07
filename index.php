@@ -26,4 +26,4 @@ $view = new View($registry);
 $registry->set('view', $view);
 
 $loader = new Loader($registry);
-$loader->controller('router', array());
+$loader->controller('router', '', array());
